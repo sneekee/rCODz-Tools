@@ -1,6 +1,33 @@
 
 <style>
+	.tab-pane{
+		background-color: #fff;
+	    padding: 1em;
+	    border: 1px solid;
+	    border-color: #ddd #ddd #fff;
+	    border-bottom-left-radius: .25rem;
+	    border-bottom-right-radius: .25rem;
+	}
 
+	li.active a{
+		background-color: #ddd !important;
+    	border-color: #ddd !important;
+	}
+
+	#mazeGrid {
+            width: 396px;
+            height: 396px;
+            background-color: #96C459;
+            border-collapse: collapse;
+            border: 6px solid black;
+        }
+
+            #mazeGrid tr td {
+                height: 64px;
+                width: 64px;
+                text-align: center;
+                border: 5px solid #6FB351;
+            }
 </style>
 <script src="http://getbootstrap.com/2.0.4/assets/js/bootstrap-tab.js"></script>
 <h1>Getting the Venom X/Y/Z</h1>
@@ -8,9 +35,9 @@
 <div id="exTab1" class="container">
 
 	<ul class="nav nav-tabs">
-		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs1" data-toggle="tab">Button</a></li>
-		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs2" data-toggle="tab">Maze</a></li>
-		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs3" data-toggle="tab">Morse</a>
+		<li class="nav-item active"><a class="nav-link active" href="#tabs1" data-toggle="tab">Button</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#tabs2" data-toggle="tab">Maze</a></li>
+		<li class="nav-item"><a class="nav-link active" href="#tabs3" data-toggle="tab">Morse</a>
 		</li>
 	</ul>
 
@@ -24,17 +51,25 @@
 	            <li>Use the tool below to figure out which button to press</li>
 	        </ol>
 	        <div>
-	            <fieldset>
-	                <label for="btnNum">Number of buttons:</label>
-	                <input data-bind="value: numberOfButtons" type="range" min="3" max="6" id="btnNum" />
-	                <span data-bind="text: numberOfButtons"></span>
-	            </fieldset>
+	        	<div class="row">
+	        		<div class="col-md-12">
+			            <fieldset>
+			                <label for="btnNum">Number of buttons:</label>
+			                <input data-bind="value: numberOfButtons" type="range" min="3" max="6" id="btnNum" />
+			                <span data-bind="text: numberOfButtons"></span>
+			            </fieldset>
+	        		</div>
+	        	</div>
+	        	<div class="row">
 	            <!-- ko foreach: $root.buttonList() -->
-	            <fieldset data-bind="style: { backgroundColor: colour}">
-	                <label data-bind="text: 'Button ' + ($index() + 1)"></label>
-	                <select data-bind="options: $root.availableColours(), value: colour"></select>
-	            </fieldset>
+	        		<div class="col-md-2">
+		        		<fieldset data-bind="style: { backgroundColor: colour}">
+			                <label data-bind="text: 'Button ' + ($index() + 1)"></label><br />
+			                <select style="width: 100%" data-bind="options: $root.availableColours(), value: colour"></select>
+			            </fieldset>
+	        		</div>
 	            <!-- /ko -->
+	        	</div>
 	            <h4 data-bind="text: 'Press button #' + solution()"></h4>
 	        </div>
 	    </div>
@@ -51,67 +86,73 @@
 	                </ul>
 	            </li>
 	        </ol>
-	        <div>
-	            <style>
-	            </style>
-	            <div>
-	                <span onclick="viewMaze.placing('start'); $('#mazeGrid').awesomeCursor('stop', { size: 40, color: '#ECF044' });">Start <i class="fa fa-stop" aria-hidden="true" style="font-size: 40px; color: #ECF044"></i></span>
-	                <span onclick="viewMaze.placing('end'); $('#mazeGrid').awesomeCursor('diamond', { size: 40, color: '#04E1F4' });">End <i class="fa fa-diamond" aria-hidden="true" style="font-size: 40px; color: #04E1F4"></i></span>
+            <div>
+                <span onclick="viewMaze.placing('start'); $('#mazeGrid').awesomeCursor('stop', { size: 40, color: '#ECF044' });">Start <i class="fa fa-stop" aria-hidden="true" style="font-size: 40px; color: #ECF044"></i></span>
+                <span onclick="viewMaze.placing('end'); $('#mazeGrid').awesomeCursor('diamond', { size: 40, color: '#04E1F4' });">End <i class="fa fa-diamond" aria-hidden="true" style="font-size: 40px; color: #04E1F4"></i></span>
+            </div>
+            <div class="row" data-bind="visible: hasSolution">
+	            <div class="col-md-12">
+	            	<span data-bind="html: solution" style="display: block;" data-bind="visible: hasSolution"></span>
 	            </div>
-	            <table id="mazeGrid" cellpadding="0" cellspacing="0" border="1" style="display: inline-block">
-	                <tr>
-	                    <td data-xy="1,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,1" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	                <tr>
-	                    <td data-xy="1,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,2" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	                <tr>
-	                    <td data-xy="1,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,3" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	                <tr>
-	                    <td data-xy="1,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,4" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	                <tr>
-	                    <td data-xy="1,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,5" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	                <tr>
-	                    <td data-xy="1,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="2,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="3,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="4,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="5,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                    <td data-xy="6,6" onclick="viewMaze.placeIcon($(this))"></td>
-	                </tr>
-	            </table>
-	            <div id="solutionImage" data-bind="visible: hasSolution" style="background-image: url('https://i.redd.it/e5jvms7pgtlz.png'); display: inline-block; height: 245px; width: 246px; float: right;"></div>
-	            <span data-bind="html: solution" style="display: block;" data-bind="visible: hasSolution"></span>
-	        </div>
-	    </div>
+            </div>
+            <div class="row" style="padding: 0 1em;">
+            	<div class="col-md-6">
+		            <table id="mazeGrid" cellpadding="0" cellspacing="0" border="1">
+		                <tr>
+		                    <td data-xy="1,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,1" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		                <tr>
+		                    <td data-xy="1,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,2" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		                <tr>
+		                    <td data-xy="1,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,3" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		                <tr>
+		                    <td data-xy="1,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,4" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		                <tr>
+		                    <td data-xy="1,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,5" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		                <tr>
+		                    <td data-xy="1,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="2,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="3,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="4,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="5,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                    <td data-xy="6,6" onclick="viewMaze.placeIcon($(this))"></td>
+		                </tr>
+		            </table>
+	            </div>
+	            <div class="col-md-6">
+		            <div id="solutionImage" data-bind="visible: hasSolution" style="background-image: url('https://i.redd.it/e5jvms7pgtlz.png'); height: 245px; width: 246px;"></div>
+		            </div>
+	            </div>
+            </div>
 	    <div class="tab-pane" role="tabpanel" id="tabs3">
 	        <h2>Morse Code</h2>
 	        <p>This step is pretty straight forward but here are some shortcuts to avoid having to translate and decypher the beeps</p>
@@ -228,6 +269,6 @@
 	            </li>
 	        </ol>
 	    </div>
-	</div>
+    </div>
 </div>
 

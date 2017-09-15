@@ -365,13 +365,14 @@ var vmMazeStep = function () {
     self.dummy.notifySubscribers();
 }
 
+var viewMaze;
 function iw_dlc4_initialize(container){
     var viewButton = new vmButtonStep();
 
     ko.cleanNode(document.getElementById("tabs1"));
     ko.applyBindings(viewButton, document.getElementById('tabs1'));
 
-    var viewMaze = new vmMazeStep();
+    viewMaze = new vmMazeStep();
     ko.cleanNode(document.getElementById("tabs2"));
     ko.applyBindings(viewMaze, document.getElementById('tabs2'));
 }

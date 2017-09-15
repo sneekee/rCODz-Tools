@@ -6,14 +6,15 @@
 
 function switchViewModel(dlc){
 	$('#welcome').hide();
-debugger;
+
 	ko.cleanNode(document.getElementById("viewHeader"));
 	ko.cleanNode(document.getElementById("viewContainer"));
 	ko.applyBindings(dlc, document.getElementById("viewHeader"));
 
-	$('#viewContainer').load(dlc.viewTemplate); //.html($('script[name="' + dlc.templateName + "'-template").html());
-	$.getScript(dlc.viewModel, function(){
-	   eval(dlc.initilizationFunction);
-	 });
-	
+	$('#viewContainer').html('');
+	$('#viewContainer').load(dlc.viewTemplate, function(){
+		$.getScript(dlc.viewModel, function(){
+		   eval(dlc.initilizationFunction);
+		 });
+	}); //.html($('script[name="' + dlc.templateName + "'-template").html());
 }
