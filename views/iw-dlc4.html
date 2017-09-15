@@ -4,7 +4,7 @@
 		background-color: #fff;
 	    padding: 1em;
 	    border: 1px solid;
-	    border-color: #ddd #ddd #fff;
+	    border-color: #ddd;
 	    border-bottom-left-radius: .25rem;
 	    border-bottom-right-radius: .25rem;
 	}
@@ -74,7 +74,7 @@
 					            <!-- ko foreach: $root.buttonList() -->
 					        		<div class="col-md-2">
 						        		<fieldset data-bind="style: { backgroundColor: colour}">
-							                <label data-bind="text: 'Button ' + ($index() + 1)"></label><br />
+							                <label data-bind="text: 'Button ' + ($index() + 1)" style="text-align: center; width: 100%;"></label><br />
 							                <select style="width: 100%" data-bind="options: $root.availableColours(), value: colour"></select>
 							            </fieldset>
 					        		</div>

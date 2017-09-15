@@ -1,0 +1,81 @@
+<style>
+	.tab-pane{
+		background-color: #fff;
+	    padding: 1em;
+	    border: 1px solid;
+	    border-color: #ddd;
+	    border-bottom-left-radius: .25rem;
+	    border-bottom-right-radius: .25rem;
+	}
+
+	li.active a{
+		background-color: #ddd !important;
+    	border-color: #ddd !important;
+	}
+</style>
+<div class="container">
+	<ul class="nav nav-tabs">
+		<li class="nav-item active"><a class="nav-link active" href="#venomX" data-toggle="tab">Valve Step</a></li>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-content">
+			<div class="tab-pane active" role="tabpanel" id="valveStep">
+				<h1>Valve Step</h1>
+				<p>This tool will assist you in getting the valve step complete</p>
+				<div class="container">
+					<h3>Step 1</h3>
+					<p>What are the valves currently set to.</p>
+					<div class="row">
+					<!-- ko foreach: valves() -->
+						<div class="col-md-2">
+							<div style="border: 1px solid;border-color: #ddd;border-radius: .25rem;padding: .25rem; height: 100%;">
+								<h5 data-bind="text: location"></h5>
+								<!-- ko foreach: options -->
+								<label style="display: block;">
+									<input type="radio" data-bind="attr: {name: $parent.location, value: $data}, checked: $parent.selectedOption ">
+									<span data-bind="text: $data"></span>
+								</label>
+								<!-- /ko -->
+							</div>
+		        		</div>
+					<!-- /ko -->
+					</div>
+					<hr />
+					<h3>Step 2</h3>
+					<p>Pick the starting and ending valves</p>
+					<div class="row">
+						<!-- ko foreach: points() -->
+							<div class="col-md-6">
+								<div style="border: 1px solid;border-color: #ddd;border-radius: .25rem;padding: .25rem;">
+									<h5 data-bind="text: name"></h5>
+									<!-- ko foreach: options -->
+									<label style="display: block;">
+										<input type="radio" data-bind="attr: {name: $parent.name, value: $data}, checked: $parent.selectedOption ">
+										<span data-bind="text: $data"></span>
+									</label>
+									<!-- /ko -->
+								</div>
+			        		</div>
+						<!-- /ko -->
+					</div>
+					<div data-bind="if: solutionReady">
+						<hr />
+						<h3>Solution</h3>
+						<p>Here are your possible solutions</p>
+						<!-- ko foreach: solution -->
+							<h4 data-bind="text: title" style="display: block"></h4>
+							<h6>Total moves <span  data-bind="text: changes"></span></h6>
+							<div style="border: 1px solid;border-color: #ddd;border-radius: .25rem;padding: .25rem;" class="row">
+								<!-- ko foreach: steps -->
+								<div class="col-md-12" data-bind="text: location, style: {'background-color': colour}"></div>
+								<!-- /ko -->
+							</div>
+						<!-- /ko -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

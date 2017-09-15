@@ -5,8 +5,10 @@ var siteModel = {
 			"dlcs": [
 				{
 					"title": "Gorod Krovi",
-					"viewModel": "/js/bo3-dlc3.js",
-					"viewTemplate": "/views/bo3-dlc3.view"
+					"viewModel": "js/bo3-dlc3.js",
+					"viewTemplate": "views/bo3-dlc3.html",
+					"templateName": "bo3-dlc3",
+					"initilizationFunction": "bo3_dlc3_initialize()" 
 				}
 			]
 		},
