@@ -7,6 +7,8 @@
 function switchViewModel(dlc){
 	$('#welcome').hide();
 
+	$('#content').show();
+
 	ko.cleanNode(document.getElementById("viewHeader"));
 	ko.cleanNode(document.getElementById("viewContainer"));
 	ko.applyBindings(dlc, document.getElementById("viewHeader"));

@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron" id="content" style="display: none;">
       <div class="container" >
         <div class="row" id="viewHeader">
           <h1 class="display-3" data-bind="text: title"></h1>
@@ -59,16 +59,14 @@
             
         </div>
 
-        <hr>
-
-        <footer style="text-align: center;">
-          <p>Contributors  
-            <!-- ko foreach: credits -->
-               <a data-bind="text: name, attr: { href: url } "></a>
-            <!-- /ko -->
-        </footer>
       </div> <!-- /container -->
     </div>
+    <footer style="text-align: center;">
+      <p>Contributors  
+        <!-- ko foreach: credits -->
+           <a data-bind="text: name, attr: { href: url } "></a>
+        <!-- /ko -->
+    </footer>
 
 
     <!-- Bootstrap core JavaScript
