@@ -1,0 +1,233 @@
+
+<style>
+
+</style>
+<script src="http://getbootstrap.com/2.0.4/assets/js/bootstrap-tab.js"></script>
+<h1>Getting the Venom X/Y/Z</h1>
+
+<div id="exTab1" class="container">
+
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs1" data-toggle="tab">Button</a></li>
+		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs2" data-toggle="tab">Maze</a></li>
+		<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabs3" data-toggle="tab">Morse</a>
+		</li>
+	</ul>
+
+	<div class="tab-content">
+	  
+	    <div class="tab-pane active" role="tabpanel" id="tabs1">
+	        <h2>Button Step</h2>
+	        <ol>
+	            <li>Run a phantom cryptid through the electric trap</li>
+	            <li>Go to main room and the panel will be open</li>
+	            <li>Use the tool below to figure out which button to press</li>
+	        </ol>
+	        <div>
+	            <fieldset>
+	                <label for="btnNum">Number of buttons:</label>
+	                <input data-bind="value: numberOfButtons" type="range" min="3" max="6" id="btnNum" />
+	                <span data-bind="text: numberOfButtons"></span>
+	            </fieldset>
+	            <!-- ko foreach: $root.buttonList() -->
+	            <fieldset data-bind="style: { backgroundColor: colour}">
+	                <label data-bind="text: 'Button ' + ($index() + 1)"></label>
+	                <select data-bind="options: $root.availableColours(), value: colour"></select>
+	            </fieldset>
+	            <!-- /ko -->
+	            <h4 data-bind="text: 'Press button #' + solution()"></h4>
+	        </div>
+	    </div>
+	    <div class="tab-pane" role="tabpanel" id="tabs2">
+	        <h2>Maze step</h2>
+	        <ol>
+	            <li>Trap a zombie.</li>
+	            <li>Run to the control room and press the center of the 3 consoles.</li>
+	            <li>
+	                Use the interface below to find your way through the maze.
+	                <ul>
+	                    <li>Click desired icon above grid</li>
+	                    <li>Click desired position in grid to place icon</li>
+	                </ul>
+	            </li>
+	        </ol>
+	        <div>
+	            <style>
+	            </style>
+	            <div>
+	                <span onclick="viewMaze.placing('start'); $('#mazeGrid').awesomeCursor('stop', { size: 40, color: '#ECF044' });">Start <i class="fa fa-stop" aria-hidden="true" style="font-size: 40px; color: #ECF044"></i></span>
+	                <span onclick="viewMaze.placing('end'); $('#mazeGrid').awesomeCursor('diamond', { size: 40, color: '#04E1F4' });">End <i class="fa fa-diamond" aria-hidden="true" style="font-size: 40px; color: #04E1F4"></i></span>
+	            </div>
+	            <table id="mazeGrid" cellpadding="0" cellspacing="0" border="1" style="display: inline-block">
+	                <tr>
+	                    <td data-xy="1,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,1" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	                <tr>
+	                    <td data-xy="1,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,2" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	                <tr>
+	                    <td data-xy="1,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,3" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	                <tr>
+	                    <td data-xy="1,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,4" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	                <tr>
+	                    <td data-xy="1,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,5" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	                <tr>
+	                    <td data-xy="1,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="2,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="3,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="4,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="5,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                    <td data-xy="6,6" onclick="viewMaze.placeIcon($(this))"></td>
+	                </tr>
+	            </table>
+	            <div id="solutionImage" data-bind="visible: hasSolution" style="background-image: url('https://i.redd.it/e5jvms7pgtlz.png'); display: inline-block; height: 245px; width: 246px; float: right;"></div>
+	            <span data-bind="html: solution" style="display: block;" data-bind="visible: hasSolution"></span>
+	        </div>
+	    </div>
+	    <div class="tab-pane" role="tabpanel" id="tabs3">
+	        <h2>Morse Code</h2>
+	        <p>This step is pretty straight forward but here are some shortcuts to avoid having to translate and decypher the beeps</p>
+	        <ol>
+	            <li>
+	                Activate the computer on the upper level and listen to the first beep
+	                <ul>
+	                    <li>first beep is short, your key is Archer</li>
+	                    <li>first beep is long, your key is Cross</li>
+	                </ul>
+	            </li>
+	            <li>
+	                Activate the lower computer
+	                <ul>
+	                    <li>
+	                        If your key was Archer your message will always start with
+	                        <pre>-.- --.. -. ... ... -- . ..</pre>
+	                        Follow along to the beeps and listen for the first 2 letters that follow it will be one of the following
+	                        <ul>
+	                            <li>
+	                                <pre>.... .--.</pre>
+	                                Fifteen
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter fifteen
+	                                        <pre>..-. .. ..-. - . . -. .-.-..</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>...- -..</pre>
+	                                Twenty or TwentyFive
+	                                <ul>
+	                                    <li>
+	                                        Your number is either 20 or 25 go to the terminal and enter 20
+	                                        <pre>- .-- . -. - -.--</pre>
+	                                        If you dont get the activation sound enter 5
+	                                        <pre>..-. .. ...- .</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>...- ---</pre>
+	                                Thrity
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter thirty
+	                                        <pre>- .... .. .-. - -.--</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>--. .--.</pre>
+	                                Eighteen
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter eighteen
+	                                        <pre>. .. --. .... - . . -.</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                    <li>
+	                        If your key was Cross your message will always start with
+	                        <pre>-- --.. --.. -.. --. -..- ...- ..-.</pre>
+	                        Follow along to the beeps and listen for the first 2 letters that follow it will be one of the following
+	                        <ul>
+	                            <li>
+	                                <pre>-..- .-</pre>
+	                                Fifteen
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter fifteen
+	                                        <pre>..-. .. ..-. - . . -. .-.-..</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>.-.. ---</pre>
+	                                Twenty or TwentyFive
+	                                <ul>
+	                                    <li>
+	                                        Your number is either 20 or 25 go to the terminal and enter 20
+	                                        <pre>- .-- . -. - -.--</pre>
+	                                        If you dont get the activation sound enter 5
+	                                        <pre>..-. .. ...- .</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>.-.. --..</pre>
+	                                Thrity
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter thirty
+	                                        <pre>- .... .. .-. - -.--</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li>
+	                                <pre>.-- .-</pre>
+	                                Eighteen
+	                                <ul>
+	                                    <li>
+	                                        Go up to the terminal and enter eighteen
+	                                        <pre>. .. --. .... - . . -.</pre>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                        </ul>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ol>
+	    </div>
+	</div>
+</div>
+

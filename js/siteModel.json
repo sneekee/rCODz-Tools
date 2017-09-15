@@ -1,0 +1,30 @@
+var siteModel = {
+	"games": [
+		{
+			"title": "Black Ops 3",
+			"dlcs": [
+				{
+					"title": "Gorod Krovi",
+					"viewModel": "/js/bo3-dlc3.js",
+					"viewTemplate": "/views/bo3-dlc3.view"
+				}
+			]
+		},
+		{
+			"title": "Infinite Warfare",
+			"dlcs": [
+				{
+					"title": "The Beast From Beyond",
+					"viewModel": "js/iw-dlc4.js",
+					"viewTemplate": "views/iw-dlc4.html",
+					"templateName": "iw-dlc4",
+					"initilizationFunction": "iw_dlc4_initialize()" 
+				}
+			]
+		}
+	],
+	"credits": [
+		{ "name": "SneeKeeFahk", "url": "https://www.reddit.com/user/SneeKeeFahk"},
+		{ "name": "TheGingerJonny", "url": "https://www.reddit.com/user/TheGingerJonny"}
+	]
+}
