@@ -256,54 +256,54 @@ var vmMazeStep = function () {
     }
 
     self.solutions = [
-        {
-            start: { x: 2, y: 2 },
-            end: { x: 4, y: 5 },
-            solution: 'D1, R1, D1, L1, D1, R1, D1, R3, U1, L2',
-            imageLocation: { x: 0, y: 0 }
-        },
-        {
-            start: { x: 2, y: 4 },
-            end: { x: 5, y: 1 },
-            solution: 'U2, R1, D1, R1, U1, R1, D1, R1, U2, L1',
-            imageLocation: { x: -239, y: 0 }
-        },
-        {
-            start: { x: 5, y: 1 },
-            end: { x: 3, y: 5 },
-            solution: 'R1, D1, L2, U1, L3, D5, R2, U1',
-            imageLocation: { x: -478, y: 0 }
-        },
-        {
-            start: { x: 6, y: 1 },
-            end: { x: 5, y: 4 },
-            solution: 'L1, D1, R1, D4, L4, U1, R2, U1, R1',
-            imageLocation: { x: -717, y: 0 }
-        },
-        {
-            start: { x: 3, y: 2 },
-            end: { x: 4, y: 6 },
-            solution: 'R1, U1, L1, U1, L1, U1, R1, u1, R2, U1, L3, D1',
-            imageLocation: { x: -956, y: 0 }
-        },
-        {
-            start: { x: 3, y: 2 },
-            end: { x: 5, y: 5 },
-            solution: 'L2, U1, R4, D1, R1, D3, L1',
-            imageLocation: { x: -1195, y: 0 }
-        },
-        {
-            start: { x: 3, y: 4 },
-            end: { x: 2, y: 5 },
-            solution: 'R1, U1, L2, U1, R1, U1, L2, D4, R1',
-            imageLocation: { x: -1434, y: 0 }
-        },
-        {
-            start: { x: 5, y: 5 },
-            end: { x: 3, y: 3 },
-            solution: 'L1, D1, L3, U3, R2',
-            imageLocation: { x: -1673, y: 0 }
-        },
+                {
+                    start: { x: 2, y: 2 },
+                    end: { x: 4, y: 5 },
+                    solution: 'D1, R1, D1, L1, D1, R1, D1, R3, U1, L2',
+                    imageLocation: { x: 0, y: 0 }
+                },
+                {
+                    start: { x: 2, y: 4 },
+                    end: { x: 5, y: 1 },
+                    solution: 'U2, R1, D1, R1, U1, R1, D1, R1, U2, L1',
+                    imageLocation: { x: -239, y: 0 }
+                },
+                {
+                    start: { x: 5, y: 1 },
+                    end: { x: 3, y: 5 },
+                    solution: 'R1, D1, L2, U1, L3, D5, R2, U1',
+                    imageLocation: { x: -478, y: 0 }
+                },
+                {
+                    start: { x: 6, y: 1 },
+                    end: { x: 5, y: 4 },
+                    solution: 'L1, D1, R1, D4, L4, U1, R2, U1, R1',
+                    imageLocation: { x: -717, y: 0 }
+                },
+                {
+                    start: { x: 3, y: 2 },
+                    end: { x: 4, y: 6 },
+                    solution: 'R1, U1, L1, U1, L1, U1, R1, u1, R2, U1, L3, D1',
+                    imageLocation: { x: -956, y: 0 }
+                },
+                {
+                    start: { x: 3, y: 2 },
+                    end: { x: 5, y: 5 },
+                    solution: 'D1, L1, U1, L1, U1, R4, D1, R1, D3, L1',
+                    imageLocation: { x: -1195, y: 0 }
+                },
+                {
+                    start: { x: 3, y: 4 },
+                    end: { x: 2, y: 5 },
+                    solution: 'R1, U1, L2, U1, R1, U1, L2, D4, R1',
+                    imageLocation: { x: -1434, y: 0 }
+                },
+                {
+                    start: { x: 5, y: 5 },
+                    end: { x: 3, y: 3 },
+                    solution: 'L1, D1, L3, U3, R2',
+                    imageLocation: { x: -1673, y: 0 }
+                },
 
 
 
@@ -311,55 +311,55 @@ var vmMazeStep = function () {
 
 
 
-        {
-            start: { x: 5, y: 2 },
-            end: { x: 1, y: 6 },
-            solution: 'R1, U1, L5, D1, R2, D3, R1, U2, R1, D3',
-            imageLocation: { x: 0, y: -239 }
-        },
-        {
-            start: { x: 6, y: 5 },
-            end: { x: 4, y: 4 },
-            solution: 'U3, R1, D1, R2, D1, L1',
-            imageLocation: { x: -239, y: -239 }
-        },
-        {
-            start: { x: 1, y: 3 },
-            end: { x: 4, y: 3 },
-            solution: 'U2, R5, D2, L1, U1, R2, D2, L1, U1',
-            imageLocation: { x: -478, y: -239 }
-        },
-        {
-            start: { x: 6, y: 1 },
-            end: { x: 1, y: 5 },
-            solution: 'L1, D1, L2, U1, L1, D2, R2, D2, R3',
-            imageLocation: { x: -717, y: -239 }
-        },
-        {
-            start: { x: 2, y: 1 },
-            end: { x: 4, y: 6 },
-            solution: 'U3, L1, D1, L1, U2, L1, U1, R1',
-            imageLocation: { x: -956, y: -239 }
-        },
-        {
-            start: { x: 1, y: 3 },
-            end: { x: 4, y: 3 },
-            solution: 'U2, R5, D1, L1, U1, L2, D2, R1, U1',
-            imageLocation: { x: -1195, y: -239 }
-        },
-        {
-            start: { x: 2, y: 4 },
-            end: { x: 3, y: 2 },
-            solution: 'D1, R1, D1, R1, U1, R1, U1, R1, U1, L2, D1, L1, U1, L1, U1, R1',
-            imageLocation: { x: -1434, y: -239 }
-        },
-        {
-            start: { x: 5, y: 4 },
-            end: { x: 2, y: 3 },
-            solution: 'R1, D2, L4, U1, R1, U2, L1',
-            imageLocation: { x: -1673, y: -239 }
-        }
-    ];
+                {
+                    start: { x: 5, y: 2 },
+                    end: { x: 1, y: 6 },
+                    solution: 'L1, D1, R2, D1, L2, D1, R1, D1, L4',
+                    imageLocation: { x: 0, y: -239 }
+                },
+                {
+                    start: { x: 6, y: 5 },
+                    end: { x: 4, y: 4 },
+                    solution: 'U3, R1, D1, R2, D1, L1',
+                    imageLocation: { x: -239, y: -239 }
+                },
+                {
+                    start: { x: 1, y: 3 },
+                    end: { x: 4, y: 3 },
+                    solution: 'U2, R5, D2, L1, U1, R2, D2, L1, U1',
+                    imageLocation: { x: -478, y: -239 }
+                },
+                {
+                    start: { x: 6, y: 1 },
+                    end: { x: 1, y: 5 },
+                    solution: 'L1, D1, L2, U1, L1, D2, R2, D2, R3',
+                    imageLocation: { x: -717, y: -239 }
+                },
+                {
+                    start: { x: 2, y: 1 },
+                    end: { x: 4, y: 6 },
+                    solution: 'U3, L1, D1, L1, U2, L1, U1, R1',
+                    imageLocation: { x: -956, y: -239 }
+                },
+                {
+                    start: { x: 1, y: 3 },
+                    end: { x: 4, y: 3 },
+                    solution: 'U2, R5, D1, L1, U1, L2, D2, R1, U1',
+                    imageLocation: { x: -1195, y: -239 }
+                },
+                {
+                    start: { x: 2, y: 4 },
+                    end: { x: 3, y: 2 },
+                    solution: 'D1, R1, D1, R1, U1, R1, U1, R1, U1, L2, D1, L1, U1, L1, U1, R1',
+                    imageLocation: { x: -1434, y: -239 }
+                },
+                {
+                    start: { x: 5, y: 4 },
+                    end: { x: 2, y: 3 },
+                    solution: 'R1, D2, L4, U1, R1, U2, L1',
+                    imageLocation: { x: -1673, y: -239 }
+                }
+            ];
 
 
     self.dummy.notifySubscribers();
